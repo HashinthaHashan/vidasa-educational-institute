@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Vidasa hero photo placeholder</title><desc id="desc">Branded illustration representing students learning</desc>
+  <rect width="1200" height="900" fill="#eaf2fd"/><circle cx="1000" cy="120" r="260" fill="#0B4DA2" opacity=".08"/><circle cx="120" cy="780" r="240" fill="#D71920" opacity=".08"/>
+  <rect x="100" y="110" width="1000" height="620" rx="36" fill="#fff"/><rect x="155" y="165" width="890" height="395" rx="20" fill="#0B4DA2"/>
+  <path d="M245 270h310M245 330h430M245 390h365" stroke="#fff" stroke-width="22" stroke-linecap="round" opacity=".9"/><circle cx="870" cy="355" r="110" fill="#fff" opacity=".16"/><path d="m817 354 40 42 76-91" fill="none" stroke="#fff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0B4DA2"><circle cx="350" cy="620" r="58"/><circle cx="600" cy="620" r="58"/><circle cx="850" cy="620" r="58"/></g><g fill="#D71920"><path d="M250 742c6-80 45-120 100-120s94 40 100 120z"/><path d="M500 742c6-80 45-120 100-120s94 40 100 120z"/><path d="M750 742c6-80 45-120 100-120s94 40 100 120z"/></g>
+  <rect x="365" y="767" width="470" height="26" rx="13" fill="#0B4DA2" opacity=".22"/><text x="600" y="845" text-anchor="middle" fill="#0B4DA2" font-family="Arial, sans-serif" font-weight="700" font-size="27" letter-spacing="4">REPLACE WITH YOUR HERO PHOTO</text>
+</svg>
