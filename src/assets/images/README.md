@@ -2,6 +2,15 @@
 
 All current SVG files are local branded placeholders, so the site works without external images. Replace them with optimized real photos before launch. JPG is recommended for photographs; WebP is even better when available.
 
+## Official brand logo
+
+- Folder: `src/assets/images/brand/`
+- File: `vidasa-official-logo.jpg`
+- Source: the official Vidasa Educational Institute logo supplied by the institute
+- Appears: main navigation and footer
+- The optimized website copy preserves the original artwork and Sinhala lettering. Replace this file only when an updated official logo is approved.
+- The browser icon is generated from the same logo at `public/favicon.png`.
+
 ## Hero
 
 - Folder: `src/assets/images/hero/`
