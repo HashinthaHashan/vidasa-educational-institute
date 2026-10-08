@@ -1,6 +1,83 @@
-/**
- * Add verified teacher profiles here when names and photos are supplied.
- * Photo paths should point to /images/teachers/ inside the public folder.
- * Shape: { id, name, subject, grades, description, image }
- */
-export const teachers = []
+export const teachers = [
+  {
+    id: 'mathematics-duminda-navaratne',
+    name: 'දුමින්ද C. නවරත්න',
+    subject: 'Mathematics',
+    subjectSinhala: 'ගණිතය',
+    icon: 'calculator',
+    credentialLabel: 'Qualifications & background',
+    credentials: [
+      'B.Sc. (Mathematics & Statistics) – University of Sri Jayewardenepura',
+      'HRM (IPMSL)',
+      'Government School Teacher (රජයේ පාසල් ආචාර්ය)',
+    ],
+    image: null,
+  },
+  {
+    id: 'science-muditha-lakmal',
+    name: 'මුදිත ලක්මාල්',
+    subject: 'Science',
+    subjectSinhala: 'විද්‍යාව',
+    icon: 'flask',
+    credentialLabel: 'Qualification',
+    credentials: ['B.Sc. (Hons) – Uva Wellassa University'],
+    image: null,
+  },
+  {
+    id: 'english-nayanathara-rajapaksha',
+    name: 'Nayanathara Rajapaksha',
+    subject: 'English',
+    subjectSinhala: '',
+    icon: 'languages',
+    credentialLabel: 'Qualifications',
+    credentials: [
+      'BA (Hons) in English – ICBT Campus',
+      'Higher National Diploma in English – SLIATE',
+      'Diploma in English Teacher Training Academy',
+    ],
+    image: null,
+  },
+  {
+    id: 'sinhala-lakshman-habaragamuwa',
+    name: 'ලක්ෂ්මන් හබරගමුව',
+    subject: 'Sinhala',
+    subjectSinhala: 'සිංහල',
+    icon: 'book-text',
+    credentialLabel: 'Professional background',
+    credentials: ['Former School Teacher (හිටපු පාසල් ආචාර්ය)'],
+    image: null,
+  },
+  {
+    id: 'music-amila-senarathna',
+    name: 'අමිලා සේනාරත්න',
+    subject: 'Music',
+    subjectSinhala: 'සංගීතය',
+    icon: 'music',
+    credentialLabel: 'Qualifications',
+    credentials: [
+      'Visharada – Practical (විශාරද – ප්‍රායෝගික)',
+      'Diploma – Sri Lanka',
+    ],
+    image: null,
+  },
+  {
+    id: 'dancing-inusha-mees',
+    name: 'ඉනුෂා මීස්',
+    subject: 'Dancing',
+    subjectSinhala: 'නැටුම්',
+    icon: 'person-standing',
+    credentialLabel: 'Professional background',
+    credentials: ['Government School Teacher (රජයේ පාසල් ආචාර්ය)'],
+    image: null,
+  },
+  {
+    id: 'scholarship-kusumsiri-sir',
+    name: 'කුසුම්සිරි සර්',
+    subject: 'Grade 5 Scholarship Preparation',
+    subjectSinhala: 'ශිෂ්‍යත්ව',
+    icon: 'award',
+    credentialLabel: 'Class information',
+    credentials: ['Grades 3, 4 and 5', '2027 Scholarship classes'],
+    image: null,
+  },
+]
