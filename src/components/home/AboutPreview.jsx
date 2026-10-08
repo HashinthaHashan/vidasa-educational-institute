@@ -1,35 +1,46 @@
-import { Check, DoorOpen } from 'lucide-react'
+import { Armchair, Check, DoorOpen, ShieldCheck, Sparkles, Waves } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SectionTitle from '../common/SectionTitle'
+import RevealOnScroll from '../motion/RevealOnScroll'
 import { instituteHalls } from '../../config/site'
+
+const facilities = [
+  { icon: Sparkles, title: 'Clean classrooms', text: 'Well-maintained spaces that support focused learning.' },
+  { icon: Armchair, title: 'Comfortable seating', text: 'New desks and benches selected for student comfort.' },
+  { icon: Waves, title: 'Hygienic facilities', text: 'Clean washroom facilities for a safer daily experience.' },
+  { icon: ShieldCheck, title: 'Safe learning', text: 'A supportive setting designed around student wellbeing.' },
+]
 
 export default function AboutPreview() {
   return (
     <section className="section-space">
-      <div className="container-shell grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-        <div className="facility-showcase">
-          <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-blue-100">Learning spaces</p>
-          <h2 className="mt-3 text-3xl font-black tracking-tight text-white">Two halls, designed for different class sizes.</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {instituteHalls.map((hall) => (
-              <article key={hall.name} className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur">
-                <DoorOpen size={24} className="text-blue-200" />
-                <h3 className="mt-5 text-lg font-extrabold text-white">{hall.name}</h3>
-                <p className="mt-1 text-4xl font-black text-white">{hall.capacity}</p>
-                <p className="mt-1 text-sm text-blue-100">student capacity</p>
-              </article>
+      <div className="container-shell">
+        <RevealOnScroll className="grid items-end gap-8 lg:grid-cols-[1fr_0.75fr]">
+          <SectionTitle eyebrow="Learning environment" title="Comfort helps students do their best work" description="Vidasa has invested in the everyday details that matter: clean rooms, comfortable seating, hygienic facilities and an environment where students and teachers feel supported." align="left" />
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            {instituteHalls.map((hall) => <span key={hall.name} className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-bold text-[#0B4DA2]"><DoorOpen size={17} /> {hall.name}: {hall.capacity} students</span>)}
+          </div>
+        </RevealOnScroll>
+
+        <div className="environment-layout mt-12">
+          <RevealOnScroll className="environment-feature" y={20}>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-blue-200">Made for better learning</p>
+            <h3 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">A better place to teach. A safer place to learn.</h3>
+            <p className="mt-5 max-w-xl leading-7 text-blue-100">A welcoming atmosphere gives teachers the space to teach with dedication and students the confidence to participate, ask questions and grow.</p>
+            <ul className="mt-8 grid gap-3 text-sm font-bold text-white sm:grid-cols-2">
+              {['Purpose-built comfort', 'Clean daily environment', 'Room for focused learning', 'Student-first approach'].map((item) => <li key={item} className="flex items-center gap-2"><Check size={17} className="text-blue-200" /> {item}</li>)}
+            </ul>
+            <Link to="/about" className="btn-light mt-9">Learn about Vidasa</Link>
+          </RevealOnScroll>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {facilities.map(({ icon: Icon, title, text }, index) => (
+              <RevealOnScroll key={title} delay={index * 0.07} className={`environment-card ${index % 2 === 1 ? 'sm:translate-y-7' : ''}`}>
+                <span className="feature-icon"><Icon size={24} /></span>
+                <h3 className="mt-6 text-xl font-extrabold text-[#071b3d]">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+              </RevealOnScroll>
             ))}
           </div>
-          <p className="mt-6 text-sm leading-6 text-blue-100">A larger main hall and a focused small-group space support different learning needs.</p>
-        </div>
-        <div>
-          <SectionTitle eyebrow="About Vidasa" title="Learning built around every student" description="Vidasa Educational Institute supports students from Grade 1 to Grade 11 in a safe, clean and welcoming environment in Kotamulla, Ratnapura." align="left" />
-          <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-            {['Student-centred learning', 'Qualified educators', 'Comfortable classrooms', 'Supportive guidance'].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-sm font-bold text-slate-700"><span className="grid h-7 w-7 place-items-center rounded-full bg-blue-50 text-[#0B4DA2]"><Check size={15} strokeWidth={3} /></span>{item}</li>
-            ))}
-          </ul>
-          <Link to="/about" className="btn-primary mt-9">Discover our story</Link>
         </div>
       </div>
     </section>

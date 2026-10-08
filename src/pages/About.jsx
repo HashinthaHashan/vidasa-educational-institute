@@ -1,7 +1,16 @@
-import { DoorOpen, Eye, ShieldCheck, Target, UsersRound } from 'lucide-react'
+import { DoorOpen, Eye, HeartHandshake, ShieldCheck, Sparkles, Target, UserCheck, UsersRound } from 'lucide-react'
 import PageHero from '../components/common/PageHero'
 import SectionTitle from '../components/common/SectionTitle'
 import { instituteHalls, siteConfig } from '../config/site'
+import AnimatedCounter from '../components/motion/AnimatedCounter'
+import RevealOnScroll from '../components/motion/RevealOnScroll'
+
+const values = [
+  { icon: ShieldCheck, title: 'Safety', text: 'A clean, secure and well-maintained place to learn.' },
+  { icon: HeartHandshake, title: 'Support', text: 'Students and teachers are encouraged to do their best work.' },
+  { icon: UserCheck, title: 'Dedication', text: 'Qualified educators committed to meaningful progress.' },
+  { icon: Sparkles, title: 'Growth', text: 'Academic success and personal development belong together.' },
+]
 
 export default function About() {
   return (
@@ -15,9 +24,9 @@ export default function About() {
             <p className="mt-6 leading-8 text-slate-600">Located in Kotamulla, Karangoda, Ratnapura, our institute brings together 200+ registered students and seven teachers across a broad range of school subjects.</p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <article className="metric-card"><strong>{siteConfig.students}</strong><span>Registered students</span></article>
-            <article className="metric-card mt-8"><strong>{siteConfig.teachers}</strong><span>Teachers</span></article>
-            <article className="metric-card"><strong>7</strong><span>Subject areas</span></article>
+            <article className="metric-card"><strong><AnimatedCounter value={Number.parseInt(siteConfig.students, 10)} suffix="+" /></strong><span>Registered students</span></article>
+            <article className="metric-card mt-8"><strong><AnimatedCounter value={Number(siteConfig.teachers)} /></strong><span>Teachers</span></article>
+            <article className="metric-card"><strong><AnimatedCounter value={7} /></strong><span>Subject areas</span></article>
             <article className="metric-card mt-8"><strong>1–11</strong><span>Grade coverage</span></article>
           </div>
         </div>
@@ -54,6 +63,15 @@ export default function About() {
             ))}
           </div>
           <div className="mx-auto mt-8 flex max-w-4xl items-start gap-4 rounded-2xl bg-blue-50 p-5 text-sm leading-6 text-[#0B4DA2]"><ShieldCheck className="mt-0.5 shrink-0" size={21} /><p>Our learning environment is guided by safety, cleanliness, comfort and student wellbeing.</p></div>
+        </div>
+      </section>
+
+      <section className="section-space bg-[#f5f8fd]">
+        <div className="container-shell">
+          <SectionTitle eyebrow="Our values" title="What guides the Vidasa experience" description="The institute is shaped by four priorities that matter to students, teachers and parents." />
+          <div className="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map(({ icon: Icon, title, text }, index) => <RevealOnScroll key={title} delay={index * 0.07} className="feature-card h-full"><span className={`feature-icon ${index === 1 ? 'feature-icon-red' : ''}`}><Icon size={24} /></span><h3 className="mt-6 text-xl font-extrabold text-[#071b3d]">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></RevealOnScroll>)}
+          </div>
         </div>
       </section>
     </>
