@@ -1,35 +1,32 @@
-import { useMemo, useState } from 'react'
-import { Search } from 'lucide-react'
+import { BookOpenCheck, MessageCircle } from 'lucide-react'
 import PageHero from '../components/common/PageHero'
 import ClassCard from '../components/common/ClassCard'
-import { classes } from '../data/classes'
+import SectionTitle from '../components/common/SectionTitle'
+import { subjects, gradeGroups } from '../data/classes'
+import { getWhatsAppUrl } from '../config/site'
 
 export default function Classes() {
-  const [grade, setGrade] = useState('All grades')
-  const [subject, setSubject] = useState('All subjects')
-  const grades = ['All grades', ...new Set(classes.map((item) => item.grade))]
-  const subjects = ['All subjects', ...new Set(classes.map((item) => item.subject))]
-  const filtered = useMemo(() => classes.filter((item) => (grade === 'All grades' || item.grade === grade) && (subject === 'All subjects' || item.subject === subject)), [grade, subject])
-
   return (
     <>
-      <PageHero title="Classes" description="Find a class by grade or subject and contact our team for current enrolment and fee details." />
-      <section className="section-space bg-slate-50">
+      <PageHero title="Classes & Subjects" description="Learning opportunities for students from Grade 1 to Grade 11 across seven subject areas." />
+      <section className="section-space bg-[#f5f8fd]">
         <div className="container-shell">
-          <div className="mb-10 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:p-6">
-            <div className="flex items-center gap-3 border-b border-slate-100 pb-4"><Search size={20} className="text-[#0B4DA2]" /><h2 className="font-bold text-slate-950">Find the right class</h2></div>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <label className="form-label">Grade<select className="form-input mt-2" value={grade} onChange={(event) => setGrade(event.target.value)}>{grades.map((item) => <option key={item}>{item}</option>)}</select></label>
-              <label className="form-label">Subject<select className="form-input mt-2" value={subject} onChange={(event) => setSubject(event.target.value)}>{subjects.map((item) => <option key={item}>{item}</option>)}</select></label>
+          <div className="grade-banner">
+            <div><p className="text-xs font-extrabold uppercase tracking-[0.2em] text-blue-200">Grade coverage</p><h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">From Grade 1 to Grade 11</h2></div>
+            <div className="flex flex-wrap gap-2">{gradeGroups.map((group) => <span key={group} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white">{group}</span>)}</div>
+          </div>
+
+          <div className="mt-16">
+            <SectionTitle eyebrow="Subject areas" title="Find the right learning support" description="Select a subject and contact us to confirm the current grade group, teacher and schedule." />
+            <div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {subjects.map((item, index) => <ClassCard key={item.id} item={item} index={index} />)}
             </div>
           </div>
-          <p className="mb-6 text-sm font-semibold text-slate-500">Showing {filtered.length} {filtered.length === 1 ? 'class' : 'classes'}</p>
-          {filtered.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{filtered.map((item) => <ClassCard key={item.id} item={item} />)}</div>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-16 text-center"><h2 className="text-xl font-bold text-slate-950">No matching classes</h2><p className="mt-2 text-slate-600">Try changing one of the filters.</p></div>
-          )}
-          <p className="mt-8 rounded-xl border-l-4 border-[#D71920] bg-white p-4 text-sm leading-6 text-slate-600">Class details shown are sample content for the first website version. Please confirm the final subject, teacher, room, schedule and fee information before publishing.</p>
+
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-blue-100 bg-white p-7 shadow-sm sm:flex-row sm:items-center sm:p-9">
+            <div className="flex items-start gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-50 text-[#0B4DA2]"><BookOpenCheck size={24} /></span><div><h2 className="text-xl font-extrabold text-[#071b3d]">Need the latest class details?</h2><p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">Schedules and grade availability can change. Message our team for the current information before attending.</p></div></div>
+            <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary shrink-0"><MessageCircle size={18} /> Ask on WhatsApp</a>
+          </div>
         </div>
       </section>
     </>

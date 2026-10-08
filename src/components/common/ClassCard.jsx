@@ -1,25 +1,23 @@
-import { CalendarDays, Clock3, MapPin, UserRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { MessageCircle } from 'lucide-react'
+import { getWhatsAppUrl } from '../../config/site'
 
-export default function ClassCard({ item }) {
+const accents = {
+  blue: 'from-[#0B4DA2] to-[#1f6bc7]',
+  cyan: 'from-[#0086bd] to-[#25a8d6]',
+  red: 'from-[#D71920] to-[#ef4444]',
+  amber: 'from-[#d97706] to-[#f59e0b]',
+  violet: 'from-[#6d3db8] to-[#8b5cf6]',
+}
+
+export default function ClassCard({ item, index = 0 }) {
+  const message = `Hello Vidasa Educational Institute, I would like information about ${item.name} classes.`
   return (
-    <article className="card group flex h-full flex-col overflow-hidden">
-      <div className={`h-1.5 ${item.accent === 'red' ? 'bg-[#D71920]' : 'bg-[#0B4DA2]'}`} />
-      <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <span className="badge">{item.grade}</span>
-            <h3 className="mt-3 text-xl font-bold text-slate-950">{item.subject}</h3>
-          </div>
-          <span className="rounded-xl bg-blue-50 px-3 py-2 text-xs font-bold text-[#0B4DA2]">{item.fee}</span>
-        </div>
-        <dl className="mt-6 space-y-3 text-sm text-slate-600">
-          <div className="flex items-center gap-3"><UserRound className="text-[#0B4DA2]" size={18} /><dt className="sr-only">Teacher</dt><dd>{item.teacher}</dd></div>
-          <div className="flex items-center gap-3"><CalendarDays className="text-[#0B4DA2]" size={18} /><dt className="sr-only">Day</dt><dd>{item.day}</dd></div>
-          <div className="flex items-center gap-3"><Clock3 className="text-[#0B4DA2]" size={18} /><dt className="sr-only">Time</dt><dd>{item.startTime} – {item.endTime}</dd></div>
-          <div className="flex items-center gap-3"><MapPin className="text-[#0B4DA2]" size={18} /><dt className="sr-only">Classroom</dt><dd>{item.classroom}</dd></div>
-        </dl>
-        <Link to="/contact" className="mt-6 inline-flex items-center font-bold text-[#0B4DA2] transition group-hover:text-[#D71920]">Inquire about this class <span className="ml-2" aria-hidden="true">→</span></Link>
+    <article className="subject-card group">
+      <div className={`subject-number bg-gradient-to-br ${accents[item.accent] || accents.blue}`}>{String(index + 1).padStart(2, '0')}</div>
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">{item.grade || 'Grade availability — contact us'}</p>
+        <h3 className="mt-2 text-xl font-extrabold text-[#071b3d]">{item.name}</h3>
+        <a href={getWhatsAppUrl(message)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0B4DA2] transition hover:text-[#D71920]"><MessageCircle size={17} /> Ask about this subject</a>
       </div>
     </article>
   )

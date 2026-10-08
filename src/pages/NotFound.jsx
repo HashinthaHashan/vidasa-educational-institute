@@ -9,7 +9,7 @@ export default function NotFound() {
         <p className="mt-7 text-sm font-extrabold uppercase tracking-[0.25em] text-[#D71920]">404 error</p>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">Page not found</h1>
         <p className="mx-auto mt-4 max-w-md leading-7 text-slate-600">The page you’re looking for may have moved or no longer exists.</p>
-        <Link to="/" className="btn-primary mt-8"><ArrowLeft size={18} /> Back to Home</Link>
+        <Link to="/" className="btn-primary mt-8"><ArrowLeft size={18} /> Back to home</Link>
       </div>
     </section>
   )

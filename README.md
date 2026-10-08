@@ -1,27 +1,33 @@
 # Vidasa Educational Institute website
 
-A responsive static frontend built with React, Vite, Tailwind CSS, React Router and Lucide icons.
+A responsive React website for Vidasa Educational Institute, Kotamulla, Karangoda, Ratnapura.
 
-## Local development
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. Create a production bundle with `npm run build` and test it with `npm run preview`.
+Production checks:
 
-## Content updates
+```bash
+npm run lint
+npm run build
+```
 
-- Institute contact details and social links: `src/config/site.js`
-- Classes: `src/data/classes.js`
-- Teachers: `src/data/teachers.js`
-- Timetable: `src/data/timetable.js`
-- Gallery: `src/data/gallery.js`
-- Image requirements and replacement instructions: `src/assets/images/README.md`
+## Editing guide
+
+- Institute details, contact links, mission, vision and hall capacities: `src/config/site.js`
+- Subjects and grade groups: `src/data/classes.js`
+- Teacher profiles: `src/data/teachers.js`
+- Gallery photos: `src/data/gallery.js`
+- Main styles and visual tokens: `src/index.css`
+- Page content: `src/pages/`
+- Home sections: `src/components/home/`
+
+The current website contains only the verified information supplied by the institute. Teacher profiles, the official timetable and real gallery photographs intentionally remain unpublished until verified content is available.
 
 ## Deployment
 
-The output in `dist/` can be deployed as a static site. Netlify SPA redirects are included in `public/_redirects`, and Vercel rewrites are included in `vercel.json` so React Router links work when loaded directly.
-
-Before publishing, replace all placeholder contact details, sample class/teacher/timetable data and placeholder images with verified institute information.
+`npm run build` creates the production site in `dist/`. Netlify SPA redirects are included in `public/_redirects`, and Vercel rewrites are included in `vercel.json`.

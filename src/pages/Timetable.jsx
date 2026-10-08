@@ -1,31 +1,19 @@
-import { CalendarDays, Clock3, MapPin, UserRound } from 'lucide-react'
+import { CalendarClock, MessageCircle, Phone } from 'lucide-react'
 import PageHero from '../components/common/PageHero'
-import { timetable } from '../data/timetable'
+import { getPhoneUrl, getWhatsAppUrl } from '../config/site'
 
 export default function Timetable() {
   return (
     <>
-      <PageHero title="Class Timetable" description="View the weekly class schedule and plan your learning time with ease." />
-      <section className="section-space bg-slate-50">
+      <PageHero title="Class Schedules" description="Get the latest day and time for your child’s grade and subject directly from our team." />
+      <section className="section-space bg-[#f5f8fd]">
         <div className="container-shell">
-          <div className="hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:block">
-            <table className="w-full border-collapse text-left">
-              <caption className="sr-only">Vidasa weekly class timetable</caption>
-              <thead className="bg-[#0B4DA2] text-white"><tr>{['Day', 'Subject', 'Grade', 'Teacher', 'Time', 'Classroom'].map((heading) => <th key={heading} scope="col" className="px-5 py-4 text-sm font-bold">{heading}</th>)}</tr></thead>
-              <tbody className="divide-y divide-slate-100">
-                {timetable.map((item) => <tr key={item.id} className="transition hover:bg-blue-50/50"><td className="px-5 py-5 font-bold text-[#0B4DA2]">{item.day}</td><td className="px-5 py-5 font-semibold text-slate-950">{item.subject}</td><td className="px-5 py-5 text-slate-600">{item.grade}</td><td className="px-5 py-5 text-slate-600">{item.teacher}</td><td className="px-5 py-5 whitespace-nowrap text-slate-600">{item.time}</td><td className="px-5 py-5 text-slate-600">{item.classroom}</td></tr>)}
-              </tbody>
-            </table>
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-blue-950/5">
+            <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="grid min-h-72 place-items-center bg-[#071b3d] p-10 text-white"><div className="text-center"><span className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-white/10"><CalendarClock size={38} /></span><h2 className="mt-6 text-3xl font-black">Current timetable</h2><p className="mt-3 text-blue-100">Verified schedule only</p></div></div>
+              <div className="p-8 sm:p-12"><p className="eyebrow">Always up to date</p><h2 className="mt-3 text-3xl font-black text-[#071b3d]">Confirm your class before attending</h2><p className="mt-5 leading-8 text-slate-600">The official timetable has not been provided for the website yet. Contact Vidasa directly for the current day, time, teacher and hall for your chosen class.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary justify-center"><MessageCircle size={18} /> Ask on WhatsApp</a><a href={getPhoneUrl()} className="btn-secondary justify-center"><Phone size={18} /> Call 071 720 2991</a></div></div>
+            </div>
           </div>
-          <div className="grid gap-5 md:hidden">
-            {timetable.map((item) => (
-              <article key={item.id} className="card overflow-hidden">
-                <div className="flex items-center justify-between bg-[#0B4DA2] px-5 py-4 text-white"><h2 className="font-bold">{item.day}</h2><span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold">{item.grade}</span></div>
-                <div className="p-5"><h3 className="text-xl font-bold text-slate-950">{item.subject}</h3><dl className="mt-4 space-y-3 text-sm text-slate-600"><div className="flex gap-3"><UserRound size={18} className="text-[#0B4DA2]" /><dt className="sr-only">Teacher</dt><dd>{item.teacher}</dd></div><div className="flex gap-3"><Clock3 size={18} className="text-[#0B4DA2]" /><dt className="sr-only">Time</dt><dd>{item.time}</dd></div><div className="flex gap-3"><MapPin size={18} className="text-[#0B4DA2]" /><dt className="sr-only">Classroom</dt><dd>{item.classroom}</dd></div><div className="flex gap-3"><CalendarDays size={18} className="text-[#0B4DA2]" /><dt className="sr-only">Day</dt><dd>Weekly on {item.day}</dd></div></dl></div>
-              </article>
-            ))}
-          </div>
-          <p className="mt-8 rounded-xl border-l-4 border-[#D71920] bg-white p-4 text-sm leading-6 text-slate-600">This timetable contains sample class details. Confirm the official schedule with Vidasa Educational Institute before attending.</p>
         </div>
       </section>
     </>
