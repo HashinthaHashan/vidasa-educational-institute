@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Vidasa Educational Institute',
   shortName: 'VIDASA',
-  tagline: 'Learn with confidence. Grow with purpose.',
+  tagline: 'A Better Place to Teach. A Safer Place to Learn. A Brighter Future for Every Student.',
   address: 'Kotamulla, Karangoda, Ratnapura',
   phoneDisplay: '076 720 2991',
   phoneNumber: '+94767202991',

@@ -4,6 +4,7 @@ import ClassCard from '../components/common/ClassCard'
 import SectionTitle from '../components/common/SectionTitle'
 import { subjects, gradeGroups } from '../data/classes'
 import { getWhatsAppUrl } from '../config/site'
+import StaggerContainer from '../components/motion/StaggerContainer'
 
 export default function Classes() {
   return (
@@ -18,9 +19,9 @@ export default function Classes() {
 
           <div className="mt-16">
             <SectionTitle eyebrow="Subject areas" title="Find the right learning support" description="Select a subject and contact us to confirm the current grade group, teacher and schedule." />
-            <div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <StaggerContainer className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {subjects.map((item, index) => <ClassCard key={item.id} item={item} index={index} />)}
-            </div>
+            </StaggerContainer>
           </div>
 
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-blue-100 bg-white p-7 shadow-sm sm:flex-row sm:items-center sm:p-9">
