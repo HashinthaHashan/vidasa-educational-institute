@@ -1,18 +1,17 @@
-import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { classes } from '../../data/classes'
+import { subjects } from '../../data/classes'
 import ClassCard from '../common/ClassCard'
 import SectionTitle from '../common/SectionTitle'
 
 export default function FeaturedClasses() {
   return (
-    <section className="section-space bg-slate-50">
+    <section className="section-space bg-[#f5f8fd]">
       <div className="container-shell">
-        <SectionTitle eyebrow="Find your class" title="Featured Classes" description="Explore a selection of our currently listed classes. Contact the institute to confirm availability and enrolment details." />
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {classes.slice(0, 3).map((item) => <ClassCard key={item.id} item={item} />)}
+        <SectionTitle eyebrow="What we teach" title="Subjects for growing minds" description="Explore our subject areas for school students. Contact the institute to confirm the current class for your child’s grade." />
+        <div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {subjects.slice(0, 6).map((item, index) => <ClassCard key={item.id} item={item} index={index} />)}
         </div>
-        <div className="mt-10 text-center"><Link to="/classes" className="btn-secondary">View All Classes <ArrowRight size={18} /></Link></div>
+        <div className="mt-10 text-center"><Link to="/classes" className="btn-secondary">View all 7 subjects</Link></div>
       </div>
     </section>
   )

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { MessageCircle, Menu, X } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../common/Logo'
+import { getWhatsAppUrl } from '../../config/site'
 
 const links = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
   { label: 'Classes', to: '/classes' },
   { label: 'Teachers', to: '/teachers' },
-  { label: 'Timetable', to: '/timetable' },
+  { label: 'Schedule', to: '/timetable' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -29,7 +30,7 @@ export default function Navbar() {
         <Logo />
         <nav className="hidden items-center gap-5 xl:flex" aria-label="Main navigation">
           {links.map((link) => <NavLink key={link.to} to={link.to} className={linkClass}>{link.label}</NavLink>)}
-          <NavLink to="/contact" className="btn-primary ml-1">Join a Class</NavLink>
+          <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary ml-1"><MessageCircle size={17} /> Enquire now</a>
         </nav>
         <button
           type="button"
@@ -48,7 +49,7 @@ export default function Navbar() {
           {links.map((link) => (
             <NavLink key={link.to} to={link.to} onClick={() => setOpen(false)} className={({ isActive }) => `rounded-lg px-3 py-3.5 font-semibold transition ${isActive ? 'bg-blue-50 text-[#0B4DA2]' : 'text-slate-700 hover:bg-slate-50'}`}>{link.label}</NavLink>
           ))}
-          <NavLink to="/contact" onClick={() => setOpen(false)} className="btn-primary mt-3 justify-center">Join a Class</NavLink>
+          <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-3 justify-center"><MessageCircle size={17} /> Enquire now</a>
         </div>
       </nav>
     </header>

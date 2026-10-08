@@ -1,69 +1,59 @@
-import { Armchair, BookMarked, CheckCircle2, Lightbulb, MonitorCheck, Target } from 'lucide-react'
+import { DoorOpen, Eye, ShieldCheck, Target, UsersRound } from 'lucide-react'
 import PageHero from '../components/common/PageHero'
 import SectionTitle from '../components/common/SectionTitle'
-import SafeImage from '../components/common/SafeImage'
-import instituteImage from '../assets/images/institute/institute-placeholder.svg'
-import classroomImage from '../assets/images/institute/classroom-placeholder.svg'
-
-const facilities = [
-  { icon: Armchair, title: 'Comfortable Classrooms', text: 'Learning spaces arranged to support focus and participation.' },
-  { icon: MonitorCheck, title: 'Teaching Resources', text: 'Space for the teaching tools and resources used in each lesson.' },
-  { icon: BookMarked, title: 'Organized Learning', text: 'Clear class structures and schedules for students and parents.' },
-]
+import { instituteHalls, siteConfig } from '../config/site'
 
 export default function About() {
   return (
     <>
-      <PageHero title="About Vidasa" description="A welcoming place where quality teaching, consistent guidance and student development come together." />
+      <PageHero title="About Vidasa" description="A trusted learning space in Kotamulla where students are encouraged to learn with confidence and grow with purpose." />
 
       <section className="section-space">
-        <div className="container-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="container-shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
-            <SectionTitle eyebrow="Who we are" title="Education with Purpose and Care" description="Vidasa Educational Institute provides classes for school students in an organized, supportive environment. Our focus is to help every learner strengthen their knowledge, confidence and study habits." align="left" />
-            <p className="mt-5 leading-7 text-slate-600">We believe learning works best when students feel comfortable asking questions, receive clear explanations and are encouraged to make steady progress. Vidasa brings these values together through committed teachers and thoughtfully planned classes.</p>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {['Student-centred approach', 'Clear academic guidance', 'Experienced teaching team', 'Positive learning culture'].map((item) => <p key={item} className="flex items-center gap-3 font-semibold text-slate-700"><CheckCircle2 size={19} className="text-[#0B4DA2]" />{item}</p>)}
-            </div>
+            <SectionTitle eyebrow="Who we are" title="Education with purpose, care and dedication" description="Vidasa Educational Institute provides classes for students from Grade 1 to Grade 11 in a safe, clean, comfortable and supportive learning environment." align="left" />
+            <p className="mt-6 leading-8 text-slate-600">Located in Kotamulla, Karangoda, Ratnapura, our institute brings together 200+ registered students and seven teachers across a broad range of school subjects.</p>
           </div>
-          <SafeImage src={instituteImage} alt="Vidasa Educational Institute exterior placeholder" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl" loading="lazy" />
+          <div className="grid grid-cols-2 gap-4">
+            <article className="metric-card"><strong>{siteConfig.students}</strong><span>Registered students</span></article>
+            <article className="metric-card mt-8"><strong>{siteConfig.teachers}</strong><span>Teachers</span></article>
+            <article className="metric-card"><strong>7</strong><span>Subject areas</span></article>
+            <article className="metric-card mt-8"><strong>1–11</strong><span>Grade coverage</span></article>
+          </div>
         </div>
       </section>
 
-      <section className="section-space bg-slate-50">
+      <section className="section-space bg-[#f5f8fd]">
         <div className="container-shell grid gap-6 lg:grid-cols-2">
-          <article className="card p-8 sm:p-10">
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-blue-50 text-[#0B4DA2]"><Target size={28} /></span>
-            <h2 className="mt-6 text-2xl font-extrabold text-slate-950">Our Mission</h2>
-            <p className="mt-4 leading-7 text-slate-600">To provide clear, reliable and student-focused education that helps school students develop knowledge, confidence and the motivation to reach their academic potential.</p>
+          <article className="purpose-card purpose-card-blue">
+            <span className="purpose-icon"><Target size={28} /></span>
+            <p className="mt-8 text-xs font-extrabold uppercase tracking-[0.2em] text-blue-200">Our mission</p>
+            <h2 className="mt-3 text-3xl font-black text-white">Learning with confidence</h2>
+            <p className="mt-5 leading-8 text-blue-50">{siteConfig.mission}</p>
           </article>
-          <article className="card p-8 sm:p-10">
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-red-50 text-[#D71920]"><Lightbulb size={28} /></span>
-            <h2 className="mt-6 text-2xl font-extrabold text-slate-950">Our Vision</h2>
-            <p className="mt-4 leading-7 text-slate-600">To be a trusted learning environment where students are inspired to think, grow and prepare for a future shaped by knowledge and good values.</p>
+          <article className="purpose-card purpose-card-light">
+            <span className="purpose-icon purpose-icon-red"><Eye size={28} /></span>
+            <p className="mt-8 text-xs font-extrabold uppercase tracking-[0.2em] text-[#D71920]">Our vision</p>
+            <h2 className="mt-3 text-3xl font-black text-[#071b3d]">A trusted standard in education</h2>
+            <p className="mt-5 leading-8 text-slate-600">{siteConfig.vision}</p>
           </article>
         </div>
       </section>
 
       <section className="section-space">
         <div className="container-shell">
-          <SectionTitle eyebrow="Learning environment" title="Designed for Focused Learning" description="Vidasa aims to provide an organized and comfortable setting where students can participate, ask questions and learn with confidence." />
-          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <SafeImage src={classroomImage} alt="Vidasa classroom interior placeholder" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg" loading="lazy" />
-            <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
-              {facilities.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="flex gap-5 rounded-2xl border border-slate-100 p-5 shadow-sm">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-50 text-[#0B4DA2]"><Icon size={21} /></span>
-                  <div><h3 className="font-bold text-slate-950">{title}</h3><p className="mt-1 text-sm leading-6 text-slate-600">{text}</p></div>
-                </article>
-              ))}
-            </div>
+          <SectionTitle eyebrow="Our facilities" title="Two spaces for focused learning" description="Our halls support both larger class groups and more focused small-group sessions." />
+          <div className="mx-auto mt-11 grid max-w-4xl gap-6 md:grid-cols-2">
+            {instituteHalls.map((hall, index) => (
+              <article key={hall.name} className="card p-7 sm:p-9">
+                <div className="flex items-center justify-between"><span className="grid h-14 w-14 place-items-center rounded-2xl bg-blue-50 text-[#0B4DA2]"><DoorOpen size={27} /></span><span className="text-sm font-extrabold text-slate-400">0{index + 1}</span></div>
+                <h3 className="mt-7 text-2xl font-black text-[#071b3d]">{hall.name}</h3>
+                <p className="mt-2 text-slate-500">{hall.description}</p>
+                <div className="mt-7 flex items-end gap-3 border-t border-slate-100 pt-6"><UsersRound size={24} className="mb-1 text-[#D71920]" /><strong className="text-4xl font-black text-[#071b3d]">{hall.capacity}</strong><span className="mb-1 text-sm font-semibold text-slate-500">student capacity</span></div>
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
-
-      <section className="pb-20 sm:pb-24">
-        <div className="container-shell rounded-3xl bg-[#f4f8ff] p-8 sm:p-12">
-          <SectionTitle eyebrow="Why Vidasa?" title="A Supportive Place to Progress" description="Our approach combines committed teaching, organized schedules and a positive environment so students can focus on meaningful academic growth." />
+          <div className="mx-auto mt-8 flex max-w-4xl items-start gap-4 rounded-2xl bg-blue-50 p-5 text-sm leading-6 text-[#0B4DA2]"><ShieldCheck className="mt-0.5 shrink-0" size={21} /><p>Our learning environment is guided by safety, cleanliness, comfort and student wellbeing.</p></div>
         </div>
       </section>
     </>
