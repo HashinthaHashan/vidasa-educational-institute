@@ -11,7 +11,8 @@ export const teachers = [
       'HRM (IPMSL)',
       'Government School Teacher (රජයේ පාසල් ආචාර්ය)',
     ],
-    image: null,
+    image: '/images/teachers/duminda-c-navaratne.jpeg',
+    imagePosition: 'center 22%',
   },
   {
     id: 'science-muditha-lakmal',
@@ -21,7 +22,8 @@ export const teachers = [
     icon: 'flask',
     credentialLabel: 'Qualification',
     credentials: ['B.Sc. (Hons) – Uva Wellassa University'],
-    image: null,
+    image: '/images/teachers/muditha-lakmal.jpeg',
+    imagePosition: 'center 38%',
   },
   {
     id: 'english-nayanathara-rajapaksha',
@@ -35,7 +37,18 @@ export const teachers = [
       'Higher National Diploma in English – SLIATE',
       'Diploma in English Teacher Training Academy',
     ],
-    image: null,
+    image: '/images/teachers/nayanathara-rajapaksha.jpeg',
+    imagePosition: 'center 12%',
+  },
+  {
+    id: 'scholarship-kusumsiri-sir',
+    name: 'කුසුම්සිරි සර්',
+    subject: 'Grade 5 Scholarship Preparation',
+    subjectSinhala: 'ශිෂ්‍යත්ව',
+    icon: 'award',
+    credentialLabel: 'Class information',
+    credentials: ['Grades 3, 4 and 5', '2027 Scholarship classes'],
+    image: '/images/teachers/kusumsiri-sir.jpeg',
   },
   {
     id: 'sinhala-lakshman-habaragamuwa',
@@ -78,6 +91,6 @@ export const teachers = [
     icon: 'award',
     credentialLabel: 'Class information',
     credentials: ['Grades 3, 4 and 5', '2027 Scholarship classes'],
-    image: null,
+    image: '/images/teachers/kusumsiri-sir.jpeg',
   },
 ]

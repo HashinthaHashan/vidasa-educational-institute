@@ -22,6 +22,7 @@ export default function TeacherCard({ teacher, compact = false }) {
             src={teacher.image}
             alt={`${teacher.name}, ${teacher.subject} teacher at Vidasa Educational Institute`}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            style={{ objectPosition: teacher.imagePosition || 'center' }}
             loading="lazy"
             width="900"
             height="675"
