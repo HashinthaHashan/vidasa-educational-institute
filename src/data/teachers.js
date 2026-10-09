@@ -83,14 +83,4 @@ export const teachers = [
     credentials: ['Government School Teacher (රජයේ පාසල් ආචාර්ය)'],
     image: null,
   },
-  {
-    id: 'scholarship-kusumsiri-sir',
-    name: 'කුසුම්සිරි සර්',
-    subject: 'Grade 5 Scholarship Preparation',
-    subjectSinhala: 'ශිෂ්‍යත්ව',
-    icon: 'award',
-    credentialLabel: 'Class information',
-    credentials: ['Grades 3, 4 and 5', '2027 Scholarship classes'],
-    image: '/images/teachers/kusumsiri-sir.jpeg',
-  },
 ]
