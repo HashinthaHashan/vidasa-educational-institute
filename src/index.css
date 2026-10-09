@@ -544,6 +544,312 @@ select {
 .social-link { display: flex; align-items: center; gap: 0.7rem; border: 1px solid rgba(255,255,255,.13); border-radius: 0.8rem; background: rgba(255,255,255,.08); padding: 0.8rem 1rem; color: #dbeafe; font-size: 0.875rem; font-weight: 700; transition: background-color 150ms ease; }
 .social-link:hover { background: rgba(255,255,255,.15); color: #ffffff; }
 
+.timetable-year-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: space-between;
+  border: 1px solid #dce8f7;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  box-shadow: 0 16px 45px rgba(7, 27, 61, 0.07);
+}
+
+.academic-year-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  background: #0b4da2;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  box-shadow: 0 9px 24px rgba(11, 77, 162, 0.2);
+}
+
+.timetable-year-summary p { display: flex; align-items: baseline; gap: 0.45rem; }
+.timetable-year-summary strong { color: #071b3d; font-size: 1.4rem; font-weight: 900; }
+.timetable-year-summary p span { color: #64748b; font-size: 0.78rem; font-weight: 700; }
+
+.timetable-subject-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 14rem;
+  border: 1px solid #e1e9f4;
+  border-top: 3px solid var(--subject-color);
+  border-radius: 1.4rem;
+  background: #ffffff;
+  padding: 1.4rem;
+  box-shadow: 0 10px 32px rgba(7, 27, 61, 0.055);
+  text-align: left;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.timetable-subject-card::after {
+  position: absolute;
+  right: -2.75rem;
+  top: -2.75rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 999px;
+  background: var(--subject-soft);
+  content: '';
+}
+
+.timetable-subject-card:hover {
+  border-color: var(--subject-color);
+  box-shadow: 0 20px 45px rgba(7, 27, 61, 0.11);
+}
+
+.timetable-subject-icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: var(--subject-soft);
+  color: var(--subject-color);
+}
+
+.timetable-filter-panel {
+  overflow: hidden;
+  border: 1px solid #dce5f1;
+  border-radius: 2rem;
+  background: #ffffff;
+  box-shadow: 0 24px 65px rgba(7, 27, 61, 0.09);
+}
+
+.timetable-view-toggle {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+  border: 1px solid #dbe4f0;
+  border-radius: 0.9rem;
+  background: #f1f5f9;
+  padding: 0.25rem;
+}
+
+.timetable-view-toggle button {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.9rem;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.timetable-view-toggle button.active {
+  background: #ffffff;
+  color: #0b4da2;
+  box-shadow: 0 4px 14px rgba(7, 27, 61, 0.09);
+}
+
+.timetable-filter-label {
+  display: grid;
+  gap: 0.55rem;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.timetable-filter-label select {
+  width: 100%;
+  min-height: 3rem;
+  appearance: auto;
+  border: 1px solid #cfdbea;
+  border-radius: 0.8rem;
+  background: #ffffff;
+  padding: 0.7rem 0.85rem;
+  color: #071b3d;
+  font-size: 0.875rem;
+  font-weight: 650;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.timetable-filter-label select:focus {
+  border-color: #0b4da2;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(11, 77, 162, 0.1);
+}
+
+.timetable-weekly-hint {
+  display: flex;
+  min-height: 4.6rem;
+  align-items: center;
+  gap: 0.7rem;
+  border: 1px dashed #bfdbfe;
+  border-radius: 0.8rem;
+  background: #eff6ff;
+  padding: 0.75rem 0.9rem;
+  color: #0b4da2;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.clear-filter-button {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.7rem;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+.clear-filter-button:hover:not(:disabled) { border-color: #d71920; color: #d71920; }
+.clear-filter-button:disabled { cursor: not-allowed; opacity: 0.45; }
+
+.timetable-table-wrap {
+  overflow: hidden;
+  border: 1px solid #e1e8f2;
+  border-radius: 1.25rem;
+}
+
+.timetable-table { width: 100%; border-collapse: collapse; }
+.timetable-table th {
+  background: #071b3d;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.timetable-table td {
+  border-top: 1px solid #e8eef6;
+  padding: 1rem;
+  color: #475569;
+  font-size: 0.83rem;
+  line-height: 1.35rem;
+  vertical-align: middle;
+}
+
+.timetable-table tbody tr { transition: background-color 150ms ease, box-shadow 150ms ease; }
+.timetable-table tbody tr:hover { background: #f7fbff; box-shadow: inset 3px 0 0 #0b4da2; }
+
+.timetable-subject-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.42rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.class-type-badge,
+.time-pending-badge {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 0.38rem 0.62rem;
+  font-size: 0.68rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.class-type-regular { background: #eef2ff; color: #4338ca; }
+.class-type-paper-class { background: #fff1f2; color: #be123c; }
+.class-type-group-class { background: #ecfdf5; color: #047857; }
+.time-pending-badge { border: 1px solid #fcd34d; background: #fffbeb; color: #a16207; }
+
+.timetable-mobile-card,
+.weekly-session-card {
+  border: 1px solid #e1e9f3;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(7, 27, 61, 0.055);
+}
+
+.timetable-mobile-card { transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+.timetable-mobile-card:hover { transform: translateY(-3px); border-color: #bfdbfe; box-shadow: 0 16px 36px rgba(11, 77, 162, 0.1); }
+
+.timetable-detail { display: flex; align-items: flex-start; gap: 0.65rem; line-height: 1.45rem; }
+.timetable-detail svg { margin-top: 0.1rem; flex-shrink: 0; color: #0b4da2; }
+
+.weekly-schedule-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.weekly-day-column {
+  overflow: hidden;
+  border: 1px solid #dce5f1;
+  border-radius: 1.35rem;
+  background: #f8fbff;
+}
+
+.weekly-day-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #dce5f1;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.weekly-session-card { box-shadow: none; }
+
+.timetable-empty-state {
+  display: grid;
+  min-height: 22rem;
+  place-items: center;
+  align-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.timetable-empty-state > span { display: grid; width: 4rem; height: 4rem; place-items: center; border-radius: 1.25rem; background: #eff6ff; color: #0b4da2; }
+.timetable-empty-state h3 { margin-top: 1.25rem; color: #071b3d; font-size: 1.35rem; font-weight: 900; }
+.timetable-empty-state p { margin-top: 0.6rem; max-width: 26rem; color: #64748b; font-size: 0.9rem; line-height: 1.5rem; }
+
+.time-confirmation-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  border: 1px solid #fcd34d;
+  border-radius: 1.2rem;
+  background: #fffbeb;
+  padding: 1.2rem;
+  color: #92400e;
+}
+
+.time-confirmation-note > svg { margin-top: 0.1rem; flex-shrink: 0; }
+.time-confirmation-note h2 { font-size: 0.95rem; font-weight: 900; }
+.time-confirmation-note p { margin-top: 0.35rem; font-size: 0.8rem; line-height: 1.35rem; }
+
+.timetable-help-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #0b4da2, #071b3d);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  box-shadow: 0 24px 60px rgba(7, 27, 61, 0.15);
+}
+
 .location-map-card {
   display: grid;
   overflow: hidden;
@@ -791,6 +1097,8 @@ select {
   }
 
   .location-map-frame { height: 400px; }
+  .timetable-year-summary { flex-direction: row; align-items: center; padding: 1.35rem 1.5rem; }
+  .weekly-schedule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 640px) {
@@ -807,6 +1115,8 @@ select {
   .location-map-card { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); align-items: stretch; }
   .location-map-wrap { padding: 1rem; }
   .home-location-marker { display: grid; }
+  .weekly-schedule-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .timetable-help-panel { flex-direction: row; align-items: center; }
 }
 
 @media (max-width: 767px) {
@@ -822,5 +1132,7 @@ select {
     transition-duration: 0.01ms !important;
   }
   .location-map-card:hover,
-  .home-location-card:hover { transform: none; }
+  .home-location-card:hover,
+  .timetable-subject-card:hover,
+  .timetable-mobile-card:hover { transform: none; }
 }
