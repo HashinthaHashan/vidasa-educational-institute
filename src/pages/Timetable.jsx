@@ -30,6 +30,7 @@ import { getPhoneUrl, getWhatsAppUrl } from '../config/site'
 
 const teacherById = Object.fromEntries(teachers.map((teacher) => [teacher.id, teacher]))
 const gradeOptions = Array.from({ length: 12 }, (_, index) => index + 1)
+const pendingSessionCount = timetable2027.filter((session) => session.status === 'time-pending').length
 
 export default function Timetable() {
   const reduceMotion = useReducedMotion()
@@ -85,7 +86,7 @@ export default function Timetable() {
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
               <p><strong>{timetable2027.length}</strong><span>official sessions</span></p>
               <p><strong>{timetableSubjects.length}</strong><span>subject areas</span></p>
-              <p><strong>1</strong><span>time pending confirmation</span></p>
+              <p><strong>{pendingSessionCount}</strong><span>times pending confirmation</span></p>
             </div>
           </div>
 
@@ -185,10 +186,12 @@ export default function Timetable() {
             </div>
           </div>
 
-          <div className="time-confirmation-note mt-8">
-            <AlertCircle size={22} />
-            <div><h2>English Grade 6 time is pending confirmation</h2><p>The supplied Saturday time was ambiguous, so no AM or PM assumption has been made. The schedule displays “Time to be confirmed” until the institute owner verifies it.</p></div>
-          </div>
+          {pendingSessionCount > 0 && (
+            <div className="time-confirmation-note mt-8">
+              <AlertCircle size={22} />
+              <div><h2>A class time is pending confirmation</h2><p>The timetable clearly marks any time that still requires confirmation from the institute owner.</p></div>
+            </div>
+          )}
 
           <div className="timetable-help-panel mt-12">
             <div><p className="text-xs font-extrabold uppercase tracking-[0.2em] text-blue-200">Need help?</p><h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">Confirm your class before attending</h2><p className="mt-3 max-w-2xl leading-7 text-blue-100">Contact VIDASA directly if you need help choosing the correct grade, subject or session.</p></div>

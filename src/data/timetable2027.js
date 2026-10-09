@@ -115,7 +115,7 @@ export const timetable2027 = [
   session({ id: 'english-grade-1-saturday', subject: 'English', grades: [1], day: 'Saturday', startTime: '13:30', endTime: '15:30', classType: 'Regular' }),
   session({ id: 'english-grade-3-saturday', subject: 'English', grades: [3], day: 'Saturday', startTime: '15:30', endTime: '18:00', classType: 'Regular' }),
   session({ id: 'english-grade-4-monday', subject: 'English', grades: [4], day: 'Monday', startTime: '14:30', endTime: '17:30', classType: 'Regular' }),
-  session({ id: 'english-grade-6-saturday-pending', subject: 'English', grades: [6], day: 'Saturday', startTime: null, endTime: null, classType: 'Regular', status: 'time-pending' }),
+  session({ id: 'english-grade-6-saturday', subject: 'English', grades: [6], day: 'Saturday', startTime: '11:15', endTime: '13:15', classType: 'Regular' }),
   session({ id: 'english-grade-7-friday', subject: 'English', grades: [7], day: 'Friday', startTime: '14:30', endTime: '16:30', classType: 'Regular' }),
   session({ id: 'english-grade-10-monday', subject: 'English', grades: [10], day: 'Monday', startTime: '17:30', endTime: '20:30', classType: 'Regular' }),
 
@@ -130,7 +130,7 @@ export const timetable2027 = [
   session({ id: 'dancing-grades-6-7-8-12-sunday', subject: 'Dancing', grades: [6, 7, 8, 12], day: 'Sunday', startTime: '08:00', endTime: '13:00' }),
 
   session({ id: 'music-group-1-friday', subject: 'Music', groupLabel: 'Group 1', day: 'Friday', startTime: '18:30', endTime: '21:30' }),
-  session({ id: 'music-grade-2-saturday', subject: 'Music', grades: [2], day: 'Saturday', startTime: '08:00', endTime: '10:00' }),
+  session({ id: 'music-group-2-saturday', subject: 'Music', groupLabel: 'Group 2', day: 'Saturday', startTime: '08:00', endTime: '10:00' }),
 
   session({ id: 'scholarship-grade-3-friday', subject: 'Scholarship', grades: [3], day: 'Friday', startTime: '16:30', endTime: '19:30', classType: 'Group Class' }),
   session({ id: 'scholarship-grade-4-wednesday', subject: 'Scholarship', grades: [4], day: 'Wednesday', startTime: '16:30', endTime: '19:30', classType: 'Paper Class' }),
