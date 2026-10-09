@@ -5,6 +5,7 @@ import FeaturedClasses from '../components/home/FeaturedClasses'
 import WhyChooseUs from '../components/home/WhyChooseUs'
 import TeachersPreview from '../components/home/TeachersPreview'
 import CTASection from '../components/home/CTASection'
+import VisitVidasa from '../components/home/VisitVidasa'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <FeaturedClasses />
       <WhyChooseUs />
       <TeachersPreview />
+      <VisitVidasa />
       <CTASection />
     </>
   )

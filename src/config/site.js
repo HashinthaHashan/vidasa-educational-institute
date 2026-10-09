@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Vidasa Educational Institute',
+  name: 'VIDASA Educational Institute',
   shortName: 'VIDASA',
   tagline: 'A Better Place to Teach. A Safer Place to Learn. A Brighter Future for Every Student.',
   address: 'Kotamulla, Karangoda, Ratnapura',
@@ -11,6 +11,15 @@ export const siteConfig = {
   email: 'vidasanew@gmail.com',
   facebookUrl: 'https://www.facebook.com/share/1Dc1uhdMJp/?mibextid=wwXIfr',
   tiktokUrl: 'https://www.tiktok.com/@vidasa.education?_r=1&_t=ZS-9ANXxwEcXae',
+  location: {
+    address: 'Kotamulla, Ratnapura, Sri Lanka',
+    shortAddress: 'Kotamulla, Ratnapura',
+    latitude: 6.665615,
+    longitude: 80.381697,
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.665615%2C80.381697',
+    directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=6.665615%2C80.381697',
+    embedUrl: 'https://maps.google.com/maps?q=6.665615%2C80.381697&z=17&output=embed',
+  },
   whatsappMessage: 'Hello Vidasa Educational Institute, I would like to know more about your classes.',
   gradeRange: 'Grades 1–11',
   students: '200+',
@@ -35,5 +44,6 @@ export const getEmailUrl = (subject = 'Inquiry about Vidasa classes') =>
 export const getWhatsAppUrl = (message = siteConfig.whatsappMessage) =>
   `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`
 
-export const getMapsUrl = () =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.address)}`
+export const getMapsUrl = () => siteConfig.location.googleMapsUrl
+
+export const getDirectionsUrl = () => siteConfig.location.directionsUrl
