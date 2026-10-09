@@ -1,5 +1,6 @@
-import { Award, BookText, Calculator, FlaskConical, Languages, MessageCircle, Music2, PersonStanding } from 'lucide-react'
+import { Award, BookText, Calculator, FlaskConical, Languages, Music2, PersonStanding } from 'lucide-react'
 import { getWhatsAppUrl } from '../../config/site'
+import BrandIcon from './BrandIcon'
 import HoverLiftCard from '../motion/HoverLiftCard'
 
 const accents = {
@@ -29,7 +30,7 @@ export default function ClassCard({ item, index = 0 }) {
       <div className="min-w-0 flex-1">
         <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-400">{item.grade || 'Grade availability — contact us'}</p>
         <h3 className="mt-2 text-xl font-extrabold text-[#071b3d]">{item.name}</h3>
-        <a href={getWhatsAppUrl(message)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0B4DA2] transition hover:text-[#D71920]"><MessageCircle size={17} /> Ask about this subject</a>
+        <a href={getWhatsAppUrl(message)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0B4DA2] transition hover:text-[#D71920]"><BrandIcon brand="whatsapp" size={17} /> Ask about this subject</a>
       </div>
     </HoverLiftCard>
   )

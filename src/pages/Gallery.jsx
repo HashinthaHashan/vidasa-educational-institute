@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Camera, ChevronLeft, ChevronRight, ImagePlus, Maximize2, MessageCircle, X } from 'lucide-react'
+import { Camera, ChevronLeft, ChevronRight, ImagePlus, Maximize2, X } from 'lucide-react'
+import BrandIcon from '../components/common/BrandIcon'
 import PageHero from '../components/common/PageHero'
 import { getWhatsAppUrl } from '../config/site'
 import { galleryItems } from '../data/gallery'
@@ -44,7 +45,7 @@ export default function Gallery() {
           ) : (
             <><div className="photo-ready-panel mx-auto max-w-5xl"><span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-blue-50 text-[#0B4DA2]"><Camera size={30} /></span><div className="flex-1"><p className="eyebrow">Photos coming soon</p><h2 className="mt-2 text-3xl font-black text-[#071b3d]">Our gallery is being prepared</h2><p className="mt-3 max-w-2xl leading-7 text-slate-600">Official institute, teacher and classroom photos will be added once they are available. No stock or unrelated images are used here.</p></div></div><div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-3">{['Institute', 'Teachers', 'Classrooms'].map((label, index) => <div key={label} className={`gallery-ready-card ${index === 1 ? 'sm:mt-8' : ''}`}><ImagePlus size={28} /><span>{label}</span></div>)}</div></>
           )}
-          <div className="mt-10 text-center"><a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-secondary"><MessageCircle size={18} /> Contact Vidasa</a></div>
+          <div className="mt-10 text-center"><a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-secondary"><BrandIcon brand="whatsapp" size={18} /> Contact Vidasa</a></div>
         </div>
       </section>
 
