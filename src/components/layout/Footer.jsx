@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BrandIcon from '../common/BrandIcon'
 import Logo from '../common/Logo'
-import { getEmailUrl, getPhoneUrl, getWhatsAppUrl, siteConfig } from '../../config/site'
+import { getEmailUrl, getMapsUrl, getPhoneUrl, getWhatsAppUrl, siteConfig } from '../../config/site'
 
 const links = [
   ['Home', '/'], ['About', '/about'], ['Classes', '/classes'], ['Teachers', '/teachers'],
@@ -32,7 +32,12 @@ export default function Footer() {
         <div>
           <h2 className="footer-heading">Contact us</h2>
           <ul className="mt-5 space-y-4 text-sm text-blue-100">
-            <li className="flex gap-3"><MapPin className="mt-0.5 shrink-0 text-white" size={18} /><span>{siteConfig.address}</span></li>
+            <li>
+              <a href={getMapsUrl()} target="_blank" rel="noopener noreferrer" className="flex gap-3 transition hover:text-white" aria-label="Open VIDASA Educational Institute in Google Maps">
+                <MapPin className="mt-0.5 shrink-0 text-white" size={18} aria-hidden="true" />
+                <span><span className="block font-bold text-white">{siteConfig.name}</span><span className="mt-1 block">{siteConfig.location.address}</span></span>
+              </a>
+            </li>
             <li><a href={getPhoneUrl()} className="flex gap-3 transition hover:text-white"><Phone className="shrink-0 text-white" size={18} /><span>{siteConfig.phoneDisplay}</span></a></li>
             <li><a href={getEmailUrl()} className="flex gap-3 transition hover:text-white"><Mail className="shrink-0 text-white" size={18} /><span>{siteConfig.emailDisplay}</span></a></li>
           </ul>
