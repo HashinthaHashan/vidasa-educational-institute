@@ -1,5 +1,5 @@
-import { MessageCircle } from 'lucide-react'
 import { motion } from 'motion/react'
+import BrandIcon from './BrandIcon'
 import { getWhatsAppUrl } from '../../config/site'
 
 export default function WhatsAppButton() {
@@ -16,7 +16,7 @@ export default function WhatsAppButton() {
       whileHover={{ y: -4, scale: 1.04 }}
       whileTap={{ scale: 0.94 }}
     >
-      <MessageCircle size={27} aria-hidden="true" />
+      <BrandIcon brand="whatsapp" size={28} />
     </motion.a>
   )
 }

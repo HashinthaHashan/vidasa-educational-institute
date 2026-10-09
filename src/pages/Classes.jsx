@@ -1,4 +1,5 @@
-import { BookOpenCheck, MessageCircle } from 'lucide-react'
+import { BookOpenCheck } from 'lucide-react'
+import BrandIcon from '../components/common/BrandIcon'
 import PageHero from '../components/common/PageHero'
 import ClassCard from '../components/common/ClassCard'
 import SectionTitle from '../components/common/SectionTitle'
@@ -26,7 +27,7 @@ export default function Classes() {
 
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-blue-100 bg-white p-7 shadow-sm sm:flex-row sm:items-center sm:p-9">
             <div className="flex items-start gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-50 text-[#0B4DA2]"><BookOpenCheck size={24} /></span><div><h2 className="text-xl font-extrabold text-[#071b3d]">Need the latest class details?</h2><p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">Schedules and grade availability can change. Message our team for the current information before attending.</p></div></div>
-            <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary shrink-0"><MessageCircle size={18} /> Ask on WhatsApp</a>
+            <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary shrink-0"><BrandIcon brand="whatsapp" size={18} /> Ask on WhatsApp</a>
           </div>
         </div>
       </section>

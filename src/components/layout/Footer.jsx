@@ -1,5 +1,6 @@
-import { ExternalLink, Mail, MapPin, MessageCircle, Phone, Share2 } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import BrandIcon from '../common/BrandIcon'
 import Logo from '../common/Logo'
 import { getEmailUrl, getPhoneUrl, getWhatsAppUrl, siteConfig } from '../../config/site'
 
@@ -17,9 +18,9 @@ export default function Footer() {
           <Logo light />
           <p className="mt-6 text-sm leading-7 text-blue-100">A safe, supportive learning environment for students from Grade 1 to Grade 11 in Kotamulla, Ratnapura.</p>
           <div className="mt-6 flex gap-3">
-            <a href={siteConfig.facebookUrl} target="_blank" rel="noreferrer" aria-label="Vidasa on Facebook" className="social-button"><Share2 size={18} /></a>
-            <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" aria-label="Vidasa on WhatsApp" className="social-button"><MessageCircle size={18} /></a>
-            <a href={siteConfig.tiktokUrl} target="_blank" rel="noreferrer" aria-label="Vidasa on TikTok" className="social-button"><ExternalLink size={18} /></a>
+            <a href={siteConfig.facebookUrl} target="_blank" rel="noreferrer" aria-label="Vidasa on Facebook" title="Facebook" className="social-button social-button--facebook"><BrandIcon brand="facebook" size={20} /></a>
+            <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" aria-label="Contact Vidasa on WhatsApp" title="WhatsApp" className="social-button social-button--whatsapp"><BrandIcon brand="whatsapp" size={20} /></a>
+            <a href={siteConfig.tiktokUrl} target="_blank" rel="noreferrer" aria-label="Vidasa on TikTok" title="TikTok" className="social-button social-button--tiktok"><BrandIcon brand="tiktok" size={20} /></a>
           </div>
         </div>
         <div>
